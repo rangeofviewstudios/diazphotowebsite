@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import HeroTitle from '@/components/HeroTitle'
+import HeroCtaButton from '@/components/HeroCtaButton'
 
 export default function Hero() {
   // Four highlights shown in the right panel grid
@@ -206,6 +207,9 @@ export default function Hero() {
             Photography
           </span>
         </div>
+
+        {/* Book a session CTA */}
+        <HeroCtaButton />
       </div>
 
       {/* ── Scroll indicator ─────────────────────────────────────────────── */}

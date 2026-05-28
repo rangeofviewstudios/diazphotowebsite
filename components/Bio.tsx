@@ -1,3 +1,5 @@
+import Grainient from '@/components/ui/Grainient'
+
 export default function Bio() {
   return (
     <section
@@ -8,8 +10,29 @@ export default function Bio() {
         gap: '1.5rem',
         borderBottom: '1px solid var(--border)',
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Subtle warm Grainient background */}
+      <Grainient
+        color1="#231507"
+        color2="#080807"
+        color3="#0E0B06"
+        timeSpeed={0.06}
+        warpStrength={0.35}
+        warpFrequency={3.0}
+        warpSpeed={1.2}
+        warpAmplitude={220}
+        blendSoftness={0.25}
+        rotationAmount={180}
+        noiseScale={1.5}
+        grainAmount={0.04}
+        grainScale={3.0}
+        contrast={1.2}
+        saturation={0.85}
+        zoom={0.75}
+      />
+
       {/* Accent line */}
       <div
         style={{
@@ -19,6 +42,7 @@ export default function Bio() {
           width: '2.5rem',
           height: '1px',
           background: 'var(--accent)',
+          zIndex: 1,
         }}
       />
 
@@ -28,6 +52,8 @@ export default function Bio() {
           gridTemplateColumns: 'auto 1fr',
           gap: 'clamp(2rem, 6vw, 6rem)',
           alignItems: 'start',
+          position: 'relative',
+          zIndex: 1,
         }}
         className="bio-grid"
       >
