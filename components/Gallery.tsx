@@ -56,6 +56,30 @@ export default function Gallery() {
     <div ref={galleryRef}>
       {/* ── Category navigation ──────────────────────────────────────────── */}
       <nav className="cat-nav" aria-label="Photography categories">
+        {/* Logo mark */}
+        <div style={{ marginRight: '0.6rem', flexShrink: 0 }}>
+          <Image
+            src="/diazlogo.png"
+            alt="Diaz Photography"
+            width={64}
+            height={36}
+            style={{
+              filter: 'invert(1) brightness(100)',
+              mixBlendMode: 'screen',
+              display: 'block',
+            }}
+          />
+        </div>
+
+        {/* Separator */}
+        <div style={{
+          width: '1px',
+          height: '20px',
+          background: 'var(--border)',
+          flexShrink: 0,
+          marginRight: '0.4rem',
+        }} />
+
         {categories.map(cat => (
           <button
             key={cat.id}
@@ -133,16 +157,17 @@ export default function Gallery() {
 
       {/* ── Footer ───────────────────────────────────────────────────────── */}
       <footer className="site-footer">
-        <span
+        <Image
+          src="/diazlogo.png"
+          alt="Diaz Photography"
+          width={96}
+          height={54}
           style={{
-            fontFamily: 'var(--font-bebas)',
-            fontSize: '1.1rem',
-            letterSpacing: '0.12em',
-            color: 'var(--text)',
+            filter: 'invert(1) brightness(100)',
+            mixBlendMode: 'screen',
+            display: 'block',
           }}
-        >
-          DIAZ
-        </span>
+        />
         <span
           style={{
             fontFamily: 'var(--font-mono)',
