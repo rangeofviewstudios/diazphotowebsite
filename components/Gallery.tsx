@@ -156,29 +156,70 @@ export default function Gallery() {
       </div>
 
       {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <footer className="site-footer">
-        <Image
-          src="/diazlogo.png"
-          alt="Diaz Photography"
-          width={96}
-          height={54}
+      <footer style={{ borderTop: '1px solid var(--border)' }}>
+        {/* ROV attribution block */}
+        <a
+          href="https://www.rovstudios.com/"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
-            filter: 'invert(1) brightness(100)',
-            mixBlendMode: 'screen',
-            display: 'block',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1rem',
+            padding: 'clamp(3rem, 6vw, 5rem) 2rem',
+            borderBottom: '1px solid var(--border)',
+            textDecoration: 'none',
+            transition: 'opacity 0.25s ease',
           }}
-        />
-        <span
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.55rem',
-            letterSpacing: '0.15em',
-            color: 'var(--muted)',
-            textTransform: 'uppercase',
-          }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+          onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
         >
-          Photography &nbsp;·&nbsp; All rights reserved
-        </span>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.5rem',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              color: 'var(--muted)',
+            }}
+          >
+            Curated with intention by
+          </span>
+          <Image
+            src="/WHITEnoBG.png"
+            alt="Range Of View Studios"
+            width={220}
+            height={60}
+            style={{ display: 'block', opacity: 0.88 }}
+          />
+        </a>
+
+        {/* Bottom bar */}
+        <div className="site-footer">
+          <Image
+            src="/diazlogo.png"
+            alt="Diaz Photography"
+            width={96}
+            height={54}
+            style={{
+              filter: 'invert(1) brightness(100)',
+              mixBlendMode: 'screen',
+              display: 'block',
+            }}
+          />
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.55rem',
+              letterSpacing: '0.15em',
+              color: 'var(--muted)',
+              textTransform: 'uppercase',
+            }}
+          >
+            Photography &nbsp;·&nbsp; All rights reserved
+          </span>
+        </div>
       </footer>
 
       {/* ── Lightbox ─────────────────────────────────────────────────────── */}
