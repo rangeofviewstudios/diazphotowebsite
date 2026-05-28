@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'
+import Image from 'next/image'
 import { photos, categories, type CategoryId } from '@/lib/photos'
 
 export default function Gallery() {
@@ -42,7 +43,6 @@ export default function Gallery() {
     }
   }, [lightbox, closeLightbox, prevPhoto, nextPhoto])
 
-  // Scroll to gallery on category click
   const galleryRef = useRef<HTMLDivElement>(null)
 
   const counts = Object.fromEntries(
@@ -118,10 +118,14 @@ export default function Gallery() {
             aria-label={`Open ${photo.alt}`}
             style={{ cursor: 'pointer', display: 'block', width: '100%', border: 'none', padding: 0, background: 'none' }}
           >
-            <img
+            <Image
               src={photo.src}
               alt={photo.alt}
-              loading={idx < 9 ? 'eager' : 'lazy'}
+              width={1200}
+              height={800}
+              sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 33vw"
+              priority={idx < 6}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
             />
           </button>
         ))}
@@ -178,11 +182,16 @@ export default function Gallery() {
 
           {/* Image */}
           <div className="lightbox-img-wrap">
-            <img
+            <Image
               key={lightbox}
               src={filtered[lightbox].src}
               alt={filtered[lightbox].alt}
+              width={1920}
+              height={1280}
+              priority
+              sizes="(max-width: 768px) 90vw, 80vw"
               className="lightbox-img"
+              style={{ width: 'auto', height: 'auto' }}
             />
           </div>
 

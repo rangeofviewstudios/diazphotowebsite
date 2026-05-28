@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import HeroTitle from '@/components/HeroTitle'
 
 export default function Hero() {
@@ -26,13 +27,14 @@ export default function Hero() {
         className="hero-bg"
         style={{ position: 'absolute', inset: 0 }}
       >
-        <img
+        <Image
           src="/images/boxing2/dsc02238.webp"
           alt=""
           aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
           style={{
-            width: '100%',
-            height: '100%',
             objectFit: 'cover',
             objectPosition: 'center 15%',
             filter: 'brightness(0.62) saturate(0.22)',
@@ -111,10 +113,13 @@ export default function Hero() {
             className="hero-panel-item"
             style={{ animationDelay: panel.delay }}
           >
-            <img
+            <Image
               src={panel.src}
               alt=""
               aria-hidden="true"
+              fill
+              sizes="(max-width: 900px) 0vw, 13vw"
+              style={{ objectFit: 'cover' }}
             />
             <span className="hero-panel-label">{panel.label}</span>
           </div>
